@@ -297,15 +297,15 @@ add_wildcard_zone() {
 	{
 		echo "zone \"${domain}\" IN {"
 		echo "    type master;"
-		echo "    allow-transfer { any; };"
-		echo "    allow-update { any; };"
+		echo "    allow-transfer { none; };"
+		echo "    allow-update { none; };"
 		echo "    file \"${zone_file}\";"
 		echo "};"
 		if [ -n "${reverse}" ]; then
 			echo "zone \"${reverse_addr}.in-addr.arpa\" {"
 			echo "    type master;"
-			echo "    allow-transfer { any; };"
-			echo "    allow-update { any; };"
+			echo "    allow-transfer { none; };"
+			echo "    allow-update { none; };"
 			echo "    file \"${zone_rev_file}\";"
 			echo "};"
 		fi
